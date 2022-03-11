@@ -19,6 +19,7 @@ pipeline {
         stage('Git Modification Check') {
             steps {
                 sh'''cd python
+                pwd
                 python3 python_script.py
                 '''
             }
