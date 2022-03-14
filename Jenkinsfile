@@ -22,6 +22,8 @@ pipeline {
                 pwd
                 git remote set-url origin https://Ray-Shubham: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@github.com/Ray-Shubham/python.git
                 python3 python_script.py
+                chmod +x script2.sh
+                ./script2.sh
                 '''
             }
         }
