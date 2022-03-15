@@ -20,12 +20,12 @@ pipeline {
             steps {
                 sh'''cd python
                 pwd
-                git remote set-url origin https://Ray-Shubham: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@github.com/Ray-Shubham/python.git
+                withCredentials([usernamePassword(credentialsId: 'gittoken', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]){
                 python3 python_script.py
                 chmod +x script2.sh
                 ./script2.sh
                 '''
-            }
+            }}
         }
     }
 }
