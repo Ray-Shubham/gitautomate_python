@@ -18,9 +18,11 @@ pipeline {
         }
         stage('Git Modification Check') {
             steps {
+                withCredentials([usernamePassword(credentialsId: 'gittoken', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]){
+                    
                 sh'''cd python
                 pwd
-                withCredentials([usernamePassword(credentialsId: 'gittoken', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]){
+                
                 python3 python_script.py
                 chmod +x script2.sh
                 ./script2.sh
